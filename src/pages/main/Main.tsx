@@ -1,9 +1,9 @@
-import { Text } from '@mantine/core';
+import Users from "../../components/Users/Users.tsx";
 
 export default function Main() {
   return (
     <div>
-      <Text size="xl">MockAPI client example</Text>
+      <Users/>
     </div>
   )
 }

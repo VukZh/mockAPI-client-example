@@ -1,0 +1,26 @@
+.options {
+    width: 30px;
+    height: 30px;
+    user-select: none;
+    cursor: pointer;
+    line-height: 20px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.options {
+    width: 30px;
+    height: 30px;
+    user-select: none;
+    cursor: pointer;
+    line-height: 20px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.optionsPopover {
+    user-select: none;
+    cursor: pointer;
+}

@@ -1,0 +1,5 @@
+.detailsTarget {
+    user-select: none;
+    cursor: pointer;
+    align-self: flex-end;
+}

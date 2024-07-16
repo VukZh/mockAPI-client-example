@@ -1,7 +1,7 @@
 import './App.css'
 import "@mantine/core/styles.css";
 import {MantineProvider} from "@mantine/core";
-import Main from "./pages/main/Main.tsx";
+import {Main} from "./pages";
 
 function App() {
 

@@ -10,12 +10,14 @@ export default function Main() {
   }, []);
   return (
     <div>
-      <AppShell>
+      <AppShell withBorder={false} padding="md" header={{ height: 30 }}>
         <AppShell.Header>
           <SearchHeader />
         </AppShell.Header>
+        <AppShell.Main>
+          <Users />
+        </AppShell.Main>
       </AppShell>
-      <Users />
     </div>
   );
 }

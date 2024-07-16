@@ -1,3 +1,4 @@
-import useUsersStore from "./useUsersStore.tsx";
+import useUsersStore from './useUsersStore.tsx';
+import useFilterStore from './useFilterStore.tsx';
 
-export {useUsersStore};
+export { useUsersStore, useFilterStore };

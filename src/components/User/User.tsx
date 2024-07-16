@@ -1,23 +1,16 @@
-import {Card, Popover, Text} from '@mantine/core';
-import {UserType} from "../../types/types.ts";
+import { Card, Popover, Text } from '@mantine/core';
+import { UserType } from '../../types/types.ts';
 
-import styles from "./User.module.css"
+import styles from './User.module.css';
 
 type UserPropsType = {
-  user: UserType
-}
+  user: UserType;
+};
 
 export default function User(props: UserPropsType) {
-  const {address, email, username, name, phone} = props.user;
+  const { address, email, username, name, phone } = props.user;
   return (
-    <Card
-      shadow="md"
-      p="md"
-      radius="md"
-      mt="md"
-      w="240px"
-    >
-
+    <Card shadow="md" p="md" radius="md" mt="md" w="240px">
       <Text fw={500}>{username}</Text>
 
       <Text size="sm" c="gray">
@@ -27,7 +20,6 @@ export default function User(props: UserPropsType) {
       <Text size="sm" c="gray">
         phone: {phone}
       </Text>
-
 
       <Popover position="bottom" withArrow shadow="xl">
         <Popover.Target>
@@ -40,13 +32,10 @@ export default function User(props: UserPropsType) {
             <Text size="xs">{`Name: ${username} (${name.firstname}/${name.lastname})`}</Text>
             <Text size="xs">{`Phone: ${phone}`}</Text>
             <Text size="xs">{`Email: ${email}`}</Text>
-            <Text
-              size="xs">{`Address: ${address.zipcode}, ${address.city} ${address.street}, ${address.number}`}</Text>
+            <Text size="xs">{`Address: ${address.zipcode}, ${address.city} ${address.street}, ${address.number}`}</Text>
           </div>
-
         </Popover.Dropdown>
       </Popover>
-
     </Card>
-  )
+  );
 }

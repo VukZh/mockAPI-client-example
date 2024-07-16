@@ -1,3 +1,3 @@
-import getFilteredUsers from "./getFilteredUsers";
+import getFilteredUsers from './getFilteredUsers';
 
-export {getFilteredUsers};
+export { getFilteredUsers };

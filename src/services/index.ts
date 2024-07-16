@@ -1,3 +1,3 @@
-import getUsers from "./api/usersApi";
+import getUsers from './api/usersApi';
 
-export {getUsers};
+export { getUsers };

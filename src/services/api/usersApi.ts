@@ -1,4 +1,4 @@
-const BaseURL = "https://fakestoreapi.com";
+const BaseURL = 'https://fakestoreapi.com';
 
 const limit = 9;
 

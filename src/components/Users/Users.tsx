@@ -1,27 +1,37 @@
-import {Flex, Loader} from '@mantine/core';
+import { Flex, Loader } from '@mantine/core';
 
-import styles from "./Users.module.css";
-import {User} from "..";
-import {useUsersStore} from "../../store";
-import {getFilteredUsers} from "../../utils";
+import styles from './Users.module.css';
+import { User } from '..';
+import { useFilterStore, useUsersStore } from '../../store';
+import { getFilteredUsers } from '../../utils';
 
 export default function Users() {
-  const users = useUsersStore((state) => state.users);
-  const searchText = useUsersStore((state) => state.searchText);
-  const isLoading = useUsersStore((state) => state.isLoading);
+  const users = useUsersStore((store) => store.users);
+  const searchText = useUsersStore((store) => store.searchText);
+  const isLoading = useUsersStore((store) => store.isLoading);
 
-  const filteredUsers = searchText ? getFilteredUsers(users, searchText) : users;
+  const nameIsFiltered = useFilterStore((store) => store.nameIsFiltered);
+  const emailIsFiltered = useFilterStore((store) => store.emailIsFiltered);
+  const phoneIsFiltered = useFilterStore((store) => store.phoneIsFiltered);
+
+  const filteredUsers = searchText
+    ? getFilteredUsers(
+        users,
+        searchText,
+        nameIsFiltered,
+        emailIsFiltered,
+        phoneIsFiltered,
+      )
+    : users;
 
   return (
-    <> {
-      isLoading ? (
-          <Flex
-            justify="center"
-            align="center">
-            <Loader color="green" size="xl" type="dots"/>
-          </Flex>
-        )
-        :
+    <>
+      {' '}
+      {isLoading ? (
+        <Flex justify="center" align="center">
+          <Loader color="green" size="xl" type="dots" />
+        </Flex>
+      ) : (
         <Flex
           columnGap="xl"
           rowGap="sm"
@@ -29,13 +39,12 @@ export default function Users() {
           align="center"
           direction="row"
           wrap="wrap"
-          className={styles.usersWrapper}
-        >
+          className={styles.usersWrapper}>
           {filteredUsers.map((user) => (
-            <User key={user.id} user={user}/>
+            <User key={user.id} user={user} />
           ))}
         </Flex>
-    }
+      )}
     </>
-  )
+  );
 }

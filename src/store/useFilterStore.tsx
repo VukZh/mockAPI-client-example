@@ -1,6 +1,8 @@
 import { create } from 'zustand';
 
 type FilterStoreType = {
+  searchText: string;
+  setSearchText: (text: string) => void;
   nameIsFiltered: boolean;
   emailIsFiltered: boolean;
   phoneIsFiltered: boolean;
@@ -10,6 +12,10 @@ type FilterStoreType = {
 };
 
 const useFilterStore = create<FilterStoreType>((set) => ({
+  searchText: '',
+  setSearchText: (text: string) => {
+    set({ searchText: text });
+  },
   nameIsFiltered: true,
   emailIsFiltered: true,
   phoneIsFiltered: true,

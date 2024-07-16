@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import styles from './SearchHeader.module.css';
 
 export default function SearchHeader() {
-  const setSearchText = useUsersStore((state) => state.setSearchText);
+  const setSearchText = useFilterStore((state) => state.setSearchText);
 
   const nameIsFiltered = useFilterStore((store) => store.nameIsFiltered);
   const emailIsFiltered = useFilterStore((store) => store.emailIsFiltered);

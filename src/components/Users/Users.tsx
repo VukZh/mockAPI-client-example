@@ -7,7 +7,7 @@ import { getFilteredUsers } from '../../utils';
 
 export default function Users() {
   const users = useUsersStore((store) => store.users);
-  const searchText = useUsersStore((store) => store.searchText);
+  const searchText = useFilterStore((store) => store.searchText);
   const isLoading = useUsersStore((store) => store.isLoading);
 
   const nameIsFiltered = useFilterStore((store) => store.nameIsFiltered);

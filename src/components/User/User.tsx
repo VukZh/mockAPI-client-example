@@ -3,30 +3,12 @@ import {UserType} from "../../types/types.ts";
 
 import styles from "./User.module.css"
 
-const user: UserType = {
-  address: {
-    geolocation: {
-      lat: "12.2345",
-      long: "12.2345"
-    },
-    city: "City",
-    street: "Street 1",
-    number: 789,
-    zipcode: "001001"
-  },
-  id: 123,
-  email: "email@email.com",
-  username: "Username",
-  password: "password",
-  name: {
-    firstname: "Firstname",
-    lastname: "Lastname"
-  },
-  phone: "+(123)456-7890",
-  __v: 0
+type UserPropsType = {
+  user: UserType
 }
 
-export default function User() {
+export default function User(props: UserPropsType) {
+  const {address, email, username, name, phone} = props.user;
   return (
     <Card
       shadow="md"
@@ -36,14 +18,14 @@ export default function User() {
       w="240px"
     >
 
-      <Text fw={500}>{user.username}</Text>
+      <Text fw={500}>{username}</Text>
 
       <Text size="sm" c="gray">
-        email: {user.email}
+        email: {email}
       </Text>
 
       <Text size="sm" c="gray">
-        phone: {user.phone}
+        phone: {phone}
       </Text>
 
 
@@ -55,11 +37,11 @@ export default function User() {
         </Popover.Target>
         <Popover.Dropdown w={300}>
           <div>
-            <Text size="xs">{`Name: ${user.username} (${user.name.firstname}/${user.name.lastname})`}</Text>
-            <Text size="xs">{`Phone: ${user.phone}`}</Text>
-            <Text size="xs">{`Email: ${user.email}`}</Text>
+            <Text size="xs">{`Name: ${username} (${name.firstname}/${name.lastname})`}</Text>
+            <Text size="xs">{`Phone: ${phone}`}</Text>
+            <Text size="xs">{`Email: ${email}`}</Text>
             <Text
-              size="xs">{`Address: ${user.address.zipcode}, ${user.address.city} ${user.address.street}, ${user.address.number}`}</Text>
+              size="xs">{`Address: ${address.zipcode}, ${address.city} ${address.street}, ${address.number}`}</Text>
           </div>
 
         </Popover.Dropdown>
